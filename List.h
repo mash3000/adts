@@ -21,7 +21,7 @@ class List //begin List definition
      
      void clear();//clear list
      int getAt(int k);//return a value from a node at location k
-     
+     void display();//display all values
 
 };//end List definition
 

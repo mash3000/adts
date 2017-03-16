@@ -94,16 +94,17 @@ void List::remove(int k)
 	//Implementations of missing operations 
 
 int List::getAt(int k){
-	if (k < 1 or k > num_elements)//if the location is invalid 
-	     throw out_of_range("List::getAt() failed. (valid indices are 1 to "+to_string(num_elements)+")");//throw an "out_of_range" exception
-	
-	Node *tmpPtr = frontPtr;
+	if(k == 1)
+	return frontPtr->data;
+	else{
+		Node* tmpPtr = frontPtr;
 
-	for(int i=1;i<k+1;i++){
-		tmpPtr = frontPtr->link; //get pointer to the (k=1)th node
-	 }
-
+		for(int i=1;i<k+1;i++){
+			tmpPtr = frontPtr->link; //get pointer to the (k=1)th node
+		}	     
+	    
 	return tmpPtr->data; //output the data at the kth node
+	      } 
 }
 
 
@@ -113,4 +114,10 @@ void List::clear(){
 	}
 }
 
+void List::display(){
+	for(Node* currptr = frontPtr; currptr != nullptr; currptr = currptr->link){
+		cout << currptr->data << " ";
+	}
+
+}
 	
